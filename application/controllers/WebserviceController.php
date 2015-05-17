@@ -11,34 +11,31 @@ class WebserviceController extends Zend_Controller_Action {
     }
     
 
-    public function listallstationAction() {
+    public function listallareaAction() {
         $this->_helper->viewRenderer->setNoRender(true);
         $json = array();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $staionmodel = new Application_Model_Station();
-            $stationresult = $staionmodel->listallstation();
+            $areamodel = new Application_Model_Area;
+            $arearesult = $areamodel->listallarea();
 
-            if ($stationresult) {
-                for ($i = 0; $i < count($stationresult); $i++) {
-                    $station = new Application_Model_Stationdata();
-                    $station->st_id = $stationresult[$i]['st_id'];
-                    $station->st_name = $stationresult[$i]['st_name'];
-                    $station->st_long = $stationresult[$i]['st_long'];
-                    $station->st_latt = $stationresult[$i]['st_latt'];
+            if ($arearesult) {
+                for ($i = 0; $i < count($arearesult); $i++) {
+                    $area = new Application_Model_Areadata();
+                    $area->area_id = $arearesult[$i]['area_id'];
+                    $area->area_name = $arearesult[$i]['area_name'];
+                   
 
 
-                    $json[] = array($stationresult[$i]['st_name'] => $station);
+                    $json = array($area);
                 }
 
-                echo json_encode(array('stations' => $json));
+                echo json_encode(array('areas' => $json));
             } else {
 
-                echo json_encode(array('no_results' => $json));
+                echo json_encode(array('areas' => $json));
             }
         }
-    }
-
-    public function loginserviceAction() {
+    }    public function loginserviceAction() {
 
 
         $this->_helper->viewRenderer->setNoRender(true);

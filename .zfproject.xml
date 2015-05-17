@@ -47,6 +47,8 @@
         <modelFile modelName="Transportationmean"/>
         <modelFile modelName="Station"/>
         <modelFile modelName="Stationdata"/>
+        <modelFile modelName="Area"/>
+        <modelFile modelName="Areadata"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
