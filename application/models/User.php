@@ -25,19 +25,12 @@ class Application_Model_User extends Zend_Db_Table_Abstract
     {
         return $this->fetchAll($this->select()->from('user', array('u_id'))->where('u_phone=?',$phone)->where('u_password=?',$password))->toArray() ;
     }
-    
-    
-    function checkuserphone($phone)
-    {
-       
-        return $this->fetchAll($this->select()->from('user', array('u_id'))->where('u_phone=?',$phone))->toArray() ;
 
-    }
     
     function checkuserPassword($password,$id)
     {
         
-        return $this->fetchAll($this->select()->from('user', array('u_id'))->where('u_password=?',$password)->where('u_id=?',$id))->toArray() ;
+        return $this->fetchAll($this->select()->where('u_password=?',$password)->where('u_id=?',$id))->toArray() ;
 
     }
     

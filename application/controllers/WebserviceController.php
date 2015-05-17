@@ -43,40 +43,47 @@ class WebserviceController extends Zend_Controller_Action {
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
+            
+            if ($_POST['email'] != "" && $_POST['password'] != "") {
 
-            if ($_POST['phone'] != "" && $_POST['password'] != "") {
+                
 
                 $user = new Application_Model_User();
 
-                $resultPhone = $user->checkuserphone($_POST['phone']);
+                $resultEmail = $user->checkuserEmail($_POST['email']);
 
+                
+                if ($resultEmail[0]) {
 
-                if ($resultPhone[0]) {
-
-                    $resultPassword = $user->checkuserPassword(md5($_POST['password']), $resultPhone[0]['u_id']);
+                    
+                    $resultPassword = $user->checkuserPassword(md5($_POST['password']), $resultEmail[0]['u_id']);
 
 
                     if ($resultPassword[0]) {
 
-                        $json = array('status' => '1', 'user_id' => $resultPassword[0]['u_id']);
+                        
+                        $json [] = array('status' => '1', 'user_id' => $resultPassword[0]['u_id'],'user_name'=> $resultPassword[0]['u_name'],'user_password'=> $resultPassword[0]['u_password'], 'user_email'=> $resultPassword[0]['u_email'], 'user_phone'=> $resultPassword[0]['u_phone'], 'user_image'=> $resultPassword[0]['u_image'] );
                         echo json_encode(array('logincontents' => $json));
                     } else {
 
-                        $json = array('status' => '-1');
+                        $json []= array('status' => '-1');
                         echo json_encode(array('logincontents' => $json));
                     }
                 } else {
-                    $json = array('status' => '0');
+                    $json []= array('status' => '0');
                     echo json_encode(array('logincontents' => $json));
                 }
+
+                
+                
             } else {
-                $json = array('status' => '-2');
+                $json []= array('status' => '-2');
 
                 echo json_encode(array('logincontents' => $json));
             }
         } else {
             //echo $this->message = 'user not found';
-            $json = array('status' => '-5');
+            $json []= array('status' => '-5');
             echo json_encode(array('logincontents' => $json));
         }
     }
