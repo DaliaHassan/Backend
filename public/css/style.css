@@ -94,10 +94,10 @@ form {
   -moz-border-radius: 0.3em;
   -webkit-border-radius: 0.3em;
   margin:0.7em 0;
-   background: url("asmaa.com/images/icons.png") no-repeat 14px 16px #474a55;
+   background: url("/transportation/public/images/icons.png") no-repeat 14px 16px #474a55;
   }
   .app-location input[type="password"]{
-      background: url("asmaa.com/images/icons.png") no-repeat 13px -61px #474a55;
+      background: url("/transportation/public/images/icons.png") no-repeat 13px -61px #474a55;
   }
   .submit {
   margin: 1em 0;

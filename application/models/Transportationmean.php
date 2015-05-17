@@ -5,8 +5,9 @@ class Application_Model_Transportationmean extends Zend_Db_Table_Abstract
 
          protected  $_name='transportationmean';
          
-         function addTransportationmean($transportation_date){
-         return $this->insert($transportation_date);
+         function addTransportationmean($transportation_data){
+         return $this->insert($transportation_data);
+         
      
          }
          

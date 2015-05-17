@@ -4,10 +4,11 @@ class TransportationmeanController extends Zend_Controller_Action
 {
 
     public function init()
-    {
-        /* Initialize action controller here */
+    { $authorization =Zend_Auth::getInstance();
+     if(!$authorization->hasIdentity()&&$this->_request->getActionName()!="login") {
+            $this->redirect("user/login");/* Initialize action controller here */
     }
-
+    }
     public function indexAction()
     {
         // action body
@@ -18,13 +19,19 @@ class TransportationmeanController extends Zend_Controller_Action
          if($this->getRequest()->isPost()){
                
            $data=$this->getRequest()->getParams();
+        
+                   
            unset($data['controller']);
            unset($data['module']);
            unset($data['action']);
            unset($data['Post']);
-           $model=new Application_Model_Transportationmean();
            
-           $model->addTransportationmean($data);
+           
+           $model=new Application_Model_Transportationmean();
+         
+           
+            $mydata=$model->addTransportationmean($data);
+           
            $this->redirect("/transportationmean/viewtransortation");
 
  

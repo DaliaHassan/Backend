@@ -34,9 +34,10 @@ class Application_Model_User extends Zend_Db_Table_Abstract
 
     }
     
-    function checkuserPassword($password)
+    function checkuserPassword($password,$id)
     {
-         return $this->fetchAll($this->select()->from('user', array('u_id'))->where('u_password=?',$password))->toArray() ;
+        
+        return $this->fetchAll($this->select()->from('user', array('u_id'))->where('u_password=?',$password)->where('u_id=?',$id))->toArray() ;
 
     }
     

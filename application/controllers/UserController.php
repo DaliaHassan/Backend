@@ -5,11 +5,18 @@ class UserController extends Zend_Controller_Action
 
     public function init()
     {
-        $authorization =Zend_Auth::getInstance();
-      if(!$authorization->hasIdentity()&&$this->_request->getActionName()!="login") {
-             //->redirect("User/add");
+       $authorization =Zend_Auth::getInstance();
+     if(!$authorization->hasIdentity()&&$this->_request->getActionName()!="login") {
+            $this->redirect("user/login");
        
     }
+        
+        $authorization = Zend_Auth::getInstance();
+
+        if(!$authorization->hasIdentity() && $this->_request->getActionName() != "login"&& $this->_request->getActionName() != "forgetpassword")
+         {
+            $this->redirect('user/login');
+         }
     }
 
     public function indexAction()
@@ -21,13 +28,13 @@ class UserController extends Zend_Controller_Action
     {
          
         if($this->getRequest()->isPost()){
-        $u_email= $this->_request->getParam("u_email");
+        $email= $this->_request->getParam("u_email");
 
-        $u_password= $this->_request->getParam("u_password");
+        $password= $this->_request->getParam("u_password");
         $db =Zend_Db_Table::getDefaultAdapter();
         $authAdapter=new Zend_Auth_Adapter_DbTable($db,'user','u_email','u_password');
-        $authAdapter->setIdentity($u_email);
-        $authAdapter->setCredential($u_password);
+        $authAdapter->setIdentity($email);
+        $authAdapter->setCredential(md5($password));
         $result = $authAdapter->authenticate();
          if ($result->isValid()) {
              $auth =Zend_Auth::getInstance();
@@ -35,22 +42,18 @@ class UserController extends Zend_Controller_Action
              $storage->write($authAdapter->getResultRowObject(array('u_email','u_id', 'u_name')));
              if($this->_request->getParam("u_email")=="admin@yahoo.com" ){
              $this->redirect("user/home");
-                 echo"sucess";
-             }
-             else{
                  
-               //  $this->redirect("Post/listpostofuser
-                echo "not found";
              }
+             
          }else{
-                   echo "not found";
+             
+             $errormessage="The Username or Password is Incorrect";
+             $this->view->error=$errormessage;
+             $this->render("login");
+                   //echo "Try Again";
         }
         
-         }
-        else{
-                   echo "not found";
         }
-       // $this->render("add");
         
     }
 

@@ -63,13 +63,13 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong> <?php
+                                         <?php
                             $z=Zend_Auth::getInstance();
        
-                            $name = $z->getIdentity()->name;
+                            $name = $z->getIdentity()->u_name;
 
-         ?>
-                                            </strong>
+                               ?>
+                                        <h5 class="media-heading"><strong><?php $name?></strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -85,7 +85,15 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                              <?php
+                                               $z=Zend_Auth::getInstance();
+       
+                                               $name = $z->getIdentity()->u_name;
+                            
+                                                ?>
+                                        <h5 class="media-heading"><strong><?=  $name?>
+                                            
+                                      </strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -107,7 +115,7 @@
        
                             $name = $z->getIdentity()->u_name;
 
-?>
+                     ?>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?= $name ?><b class="caret"></b></a>
                     <ul class="dropdown-menu"> 
                         
