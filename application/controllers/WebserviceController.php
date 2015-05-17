@@ -9,6 +9,7 @@ class WebserviceController extends Zend_Controller_Action {
     public function indexAction() {
         // action body
     }
+    
 
     public function listallstationAction() {
         $this->_helper->viewRenderer->setNoRender(true);
