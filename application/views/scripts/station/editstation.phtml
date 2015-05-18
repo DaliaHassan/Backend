@@ -235,6 +235,27 @@ if (isset($this->mystationdata))
      <label>Station Latidude:</label> 
     <input type="text"  class="form-control" name="st_latt" value="'.$this->mystationdata[0]['st_latt'].'"></br>
     </div>
+      <label> select Area:</label> 
+                            <select name="st_area"  class="form-control">
+                                ';
+  
+  
+                                $myareaname=$this->mystationdata[0]['area_name'];
+                                $myareaid=$this->mystationdata[0]['st_area'];
+  
+                                echo "<option value=$myareaid=>$myareaname</opton> ";
+                              
+                                if(isset($this->allarea)){
+                                   
+                                for ($i = 0; $i < count($this->allarea); $i++)
+                                {
+                                    $areaname= $this->allarea[$i]['area_name'];
+                                    $areaid=$this->allarea[$i]['area_id'];
+                                echo "<option value=$areaid>$areaname</opton> ";
+                                }}
+                          echo '
+                            </select>
+                            </br>
     <button type="submit" class="btn btn-default">Edit Station</button>
   
       </form>';

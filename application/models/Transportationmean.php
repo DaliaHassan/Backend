@@ -41,6 +41,37 @@ class Application_Model_Transportationmean extends Zend_Db_Table_Abstract
               return $this->update($transportationid,"tr_id=".$transportationid['tr_id']);
             
          }
+         function  listallmetrotransportation(){
+             
+              $select = $this->select()
+                ->from(array('transportationmean'), //t1
+                        array('*'))  //select cols from table
+               
+                ->where('tr_type = ?','Metro');
+                
+        $select->setIntegrityCheck(false);
+        $row = $this->fetchAll($select)->toArray();
+        return $row;
+             
+             
+        
+         }
+         
+          function  listallbustransportation(){
+             
+              $select = $this->select()
+                ->from(array('transportationmean'), //t1
+                        array('*'))  //select cols from table
+               
+                ->where('tr_type = ?','Bus');
+                
+        $select->setIntegrityCheck(false);
+        $row = $this->fetchAll($select)->toArray();
+        return $row;
+             
+             
+        
+         }
     
 }
 

@@ -228,6 +228,8 @@
                                         <th>Station Name</th>
                                         <th>Station Longitude</th>
                                         <th>Station Latitude</th>
+                                         <th>Station Area</th>
+                                        
                                         <th colspan="2">Station Process</th>
                                        
                                     </tr>
@@ -248,6 +250,8 @@ if (isset($this->alldataofstation)) {
             echo $this->alldataofstation[$i]['st_long'];
             echo'</td><td>';
             echo $this->alldataofstation[$i]['st_latt'];
+            echo'</td><td>';
+            echo $this->alldataofstation[$i]['area_name'];
             echo'</td><td>';
             echo '<a href="'.$this->baseUrl().'/station/deletestation/st_id/'.$this->alldataofstation[$i]['st_id'].'"><img src="/transportation/public/images/delete.png" alt="Edit" height="25" width="25"></a>';
             echo'</td><td>';

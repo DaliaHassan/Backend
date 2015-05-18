@@ -17,10 +17,13 @@ class StationController extends Zend_Controller_Action
 
     public function addstationAction()
     {
+        $areamodel=new Application_Model_Area();
+        $this->view->allarea=$areamodel->listallarea();
+    
          if($this->getRequest()->isPost()){
                
            $data=$this->getRequest()->getParams();
-           print_r($data);
+         
            unset($data['controller']);
            unset($data['module']);
            unset($data['action']);
@@ -39,7 +42,9 @@ class StationController extends Zend_Controller_Action
     public function viewallstationAction()
     {
       $model=new Application_Model_Station();
+      
       $allstation=$model->listallstation(); 
+    
       $this->view->alldataofstation= $allstation;   
     }
 
@@ -56,7 +61,10 @@ class StationController extends Zend_Controller_Action
 
     public function editstationAction()
     {
-       
+        
+      
+      $areamodel=new Application_Model_Area();
+      $this->view->allarea=$areamodel->listallarea(); 
       $st_id=$this->getRequest()->getParam("st_id");          
       $model=new Application_Model_Station();
       $stationdata=$model->getdatabyid($st_id); 

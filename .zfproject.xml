@@ -36,6 +36,9 @@
         <controllerFile controllerName="Webservice">
           <actionMethod actionName="index"/>
           <actionMethod actionName="listallstation"/>
+          <actionMethod actionName="listmertotransportation"/>
+          <actionMethod actionName="signup"/>
+          <actionMethod actionName="listallbustransportation"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -47,6 +50,10 @@
         <modelFile modelName="Transportationmean"/>
         <modelFile modelName="Station"/>
         <modelFile modelName="Stationdata"/>
+        <modelFile modelName="Area"/>
+        <modelFile modelName="Areadata"/>
+        <modelFile modelName="Transportationdata"/>
+        <modelFile modelName="Userdata"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -111,6 +118,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Webservice">
             <viewScriptFile forActionName="listallstation"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Webservice">
+            <viewScriptFile forActionName="listmertotransportation"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Webservice">
+            <viewScriptFile forActionName="signup"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Webservice">
+            <viewScriptFile forActionName="listallbustransportation"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

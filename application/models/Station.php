@@ -14,22 +14,38 @@ class Application_Model_Station extends Zend_Db_Table_Abstract
          
  function  listallstation(){
              
-      return $this->fetchAll()->toArray();
+      $select = $this->select()
+                ->from(array('s' => 'station'), //t1
+                        array('st_id','st_name','st_long','st_latt'))  //select cols from table
+                ->join(array('a' => 'area'),//t2
+                        's.st_area =a.area_id',  array('area_name'));
+                
+
+        $select->setIntegrityCheck(false);
+        $row = $this->fetchAll($select)->toArray();
+        return $row;
              
              
   }
          
 function deletetestation($stationid){
              
+          
   return $this->delete("st_id=$stationid");
+
  }
          
 function getdatabyid($st_id){
-             
-    if(isset($st_id)){
-            
-    return $this->find($st_id)->toArray();    
-    }
+   $select = $this->select()
+                ->from(array('s' => 'station'), //t1
+                        array('st_id','st_name','st_long','st_latt','st_area'))  //select cols from table
+                ->join(array('a' => 'area'),//t2
+                        's.st_area =a.area_id',  array('area_name'))
+                 ->where('st_id = ?', $st_id);
+
+        $select->setIntegrityCheck(false);
+        $row = $this->fetchAll($select)->toArray();
+        return $row;
         
         
   }
