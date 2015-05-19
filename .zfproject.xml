@@ -39,6 +39,7 @@
           <actionMethod actionName="listmertotransportation"/>
           <actionMethod actionName="signup"/>
           <actionMethod actionName="listallbustransportation"/>
+          <actionMethod actionName="listmertostation"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -127,6 +128,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Webservice">
             <viewScriptFile forActionName="listallbustransportation"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Webservice">
+            <viewScriptFile forActionName="listmertostation"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
