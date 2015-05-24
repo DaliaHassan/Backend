@@ -40,6 +40,14 @@
           <actionMethod actionName="signup"/>
           <actionMethod actionName="listallbustransportation"/>
           <actionMethod actionName="listmertostation"/>
+          <actionMethod actionName="listareastation"/>
+        </controllerFile>
+        <controllerFile controllerName="Pass">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="addpass"/>
+          <actionMethod actionName="listpass"/>
+          <actionMethod actionName="deletepass"/>
+          <actionMethod actionName="updatapass"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -55,6 +63,7 @@
         <modelFile modelName="Areadata"/>
         <modelFile modelName="Transportationdata"/>
         <modelFile modelName="Userdata"/>
+        <modelFile modelName="Pass"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -131,6 +140,24 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Webservice">
             <viewScriptFile forActionName="listmertostation"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Webservice">
+            <viewScriptFile forActionName="listareastation"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Pass">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Pass">
+            <viewScriptFile forActionName="addpass"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Pass">
+            <viewScriptFile forActionName="listpass"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Pass">
+            <viewScriptFile forActionName="deletepass"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Pass">
+            <viewScriptFile forActionName="updatapass"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

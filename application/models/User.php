@@ -61,9 +61,9 @@ class Application_Model_User extends Zend_Db_Table_Abstract
         
 
     }
-      function  insertuser($email,$password)
+      function  insertuser($email,$password,$username)
     {
-     $newData = array('u_email'=> $email,'u_password'=>$password);
+     $newData = array('u_email'=> $email,'u_password'=>$password ,'u_name'=>$username);
       return $this->insert($newData);
 
           

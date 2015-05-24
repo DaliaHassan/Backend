@@ -155,7 +155,7 @@
                         <ul id="Stations" class="collapse">
 
                             <li>
-                                <a href="../../../station/addstation">Add Stations</a>
+                                <a href="../../../station/addstation">Add Station</a>
                             </li>
                             <li>
                                 <a href="../../../station/viewallstation">View Stations</a>
@@ -164,17 +164,33 @@
                          
                         </ul>
 
-                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#Transportation"><i class="fa fa-fw fa-arrows-v"></i> Transportation <i class="fa fa-fw fa-caret-down"></i></a>
+                  <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Transportation"><i class="fa fa-fw fa-arrows-v"></i> Transportations <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="Transportation" class="collapse">
 
-                           <li>
-                                <a href="../../addtransortation">Add Transportation</a>
+                            <li>
+                                <a href="../../../transportationmean/addtransortation">Add Transportation</a>
                             </li>
                             <li>
-                                <a href="../../viewtransortation">View Transportations</a>
+                                <a href="../../../transportationmean/viewtransortation">View Transportations</a>
                             </li>
 
+
+                         
+                        </ul>
+                    </li>
+                    
+                    
+                       <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#StationTrans"><i class="fa fa-fw fa-arrows-v"></i> Transportations in Stations <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="StationTrans" class="collapse">
+
+                            <li>
+                                <a href="../../../pass/addpass">Add A Transportation in A Station</a>
+                            </li>
+                            <li>
+                                <a href="../../../pass/listpass">View Transportations in Stations</a>
+                            </li>
 
                          
                         </ul>
@@ -196,7 +212,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Transportation Means
+                            Transportations
                         </h1>
                         <ol class="breadcrumb">
                             <li>
@@ -204,7 +220,7 @@
                             </li>
 
                              <li class="active">
-                                <i class="fa fa-edit"></i> Transportation
+                                <i class="fa fa-edit"></i> Edit Transportation
                             </li>
 
                         </ol>
@@ -245,8 +261,11 @@ if (isset($this->mytransportationdata))
 
 
 
-                                <label>Enter Name/Number Of Transportation</label>
+                                <label>Name/Number Of Transportation</label>
                                 <input class="form-control" name="tr_number/name" value="'.$this->mytransportationdata[0]['tr_number/name'].'">
+                                </br>
+                                <label>Number Of The Stations To Be Passed </label>
+                                <input type="number" min="1" class="form-control" name="tr_stations_number" value="'.$this->mytransportationdata[0]['tr_stations_number'].'">    
                             </div>
 
                       

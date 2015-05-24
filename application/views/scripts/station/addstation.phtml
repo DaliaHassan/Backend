@@ -1,16 +1,4 @@
 
-<!--<form   method="post">
-    <label>transportation type</label>
-    <input type="text"  required name="tr_type">
-    <br>
-    <label>number/name</label> 
-    <input type="text" required name="tr_number/name">
-    <br>
-    <input type="submit" value="Add transportationmean">
-        
-   
-</form>
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -155,7 +143,7 @@
                         <ul id="Stations" class="collapse">
 
                             <li>
-                                <a href="#">Add Stations</a>
+                                <a href="#">Add Station</a>
                             </li>
                             <li>
                                 <a href="viewallstation">View Stations</a>
@@ -167,7 +155,7 @@
 
 
                      <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#Transportation"><i class="fa fa-fw fa-arrows-v"></i> Transportation <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Transportation"><i class="fa fa-fw fa-arrows-v"></i> Transportations <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="Transportation" class="collapse">
 
                            <li>
@@ -181,6 +169,22 @@
                          
                         </ul>
                     </li>
+                    
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#StationTrans"><i class="fa fa-fw fa-arrows-v"></i> Transportations in Stations <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="StationTrans" class="collapse">
+
+                            <li>
+                                <a href="../pass/addpass">Add A Transportation in A Station</a>
+                            </li>
+                            <li>
+                                <a href="../pass/listpass">View Transportations in Stations</a>
+                            </li>
+
+                         
+                        </ul>
+                    </li>
+                    
 
 
                     
@@ -198,7 +202,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                         Station
+                         Stations
                         </h1>
                         <ol class="breadcrumb">
                             <li>
@@ -206,7 +210,7 @@
                             </li>
 
                              <li class="active">
-                                <i class="fa fa-edit"></i> Transportation
+                                <i class="fa fa-edit"></i> Add Station
                             </li>
 
                         </ol>
@@ -219,38 +223,36 @@
                     
                         <form role="form" method="post">
                            <div class="form-group">
-                             <label> Enter Station Name:</label>
+                             <label> Enter Station Name</label>
                              <input type="text" class="form-control" placeholder="Station Name" required name="st_name"></br>
   
-                             <label>Enter Station Longitude:</label> 
+                             <label>Enter Station Longitude</label> 
                              <input type="text" class="form-control" placeholder="Station Longitude" required name="st_long"></br>
    
  
-                            <label> Enter Station Latitude:</label> 
+                            <label> Enter Station Latitude</label> 
                             <input type="text"  class="form-control" placeholder="Station Latitude" required name="st_latt"></br>
-                            <label> select Area:</label> 
+                            <label> Select An Area</label> 
                             <select name="st_area"  class="form-control">
                                 
                                 <?php
-                                if(isset($this->allarea)){
+                                 if(isset($this->allarea)){
                                    
                                 for ($i = 0; $i < count($this->allarea); $i++)
                                 {
                                     $areaname= $this->allarea[$i]['area_name'];
                                     $areaid=$this->allarea[$i]['area_id'];
-                                echo "<option value=$areaid>$areaname</opton> ";
+                                echo "<option value=$areaid>$areaname</option> ";
                                 }}
-                                ?>
+                       ?>
+                            
+                            
                             </select>
-                            </br>
-                               <button type="submit" class="btn btn-default">Add Station</button>
+                                </br>
+                            <button type="submit" class="btn btn-default">Add Station</button>
                                
                                
                             </div>
-
-                      
-
-                           
 
                         </form>
 

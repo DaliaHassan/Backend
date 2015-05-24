@@ -19,6 +19,11 @@ class StationController extends Zend_Controller_Action
     {
         $areamodel=new Application_Model_Area();
         $this->view->allarea=$areamodel->listallarea();
+        
+        $transportationmodel=new Application_Model_Transportationmean();
+        $this->view->alltransportation=$transportationmodel->listalltransportationmean(); 
+        
+        
     
          if($this->getRequest()->isPost()){
                
@@ -32,8 +37,6 @@ class StationController extends Zend_Controller_Action
            $mydata=$model->addstation($data);
            $this->redirect("/station/viewallstation");
 
-            
- 
            }
            
 

@@ -8,8 +8,8 @@ class Application_Model_Stationdata extends Zend_Db_Table_Abstract
 
     public $st_long;
 
-    public $st_latt;  
-    public $st_type;
+    public $st_latt;
+    
   
   
   

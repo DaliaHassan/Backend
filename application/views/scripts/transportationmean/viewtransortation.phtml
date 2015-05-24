@@ -156,7 +156,7 @@
                         <ul id="Stations" class="collapse">
 
                             <li>
-                                <a href="../station/addstation">Add Stations</a>
+                                <a href="../station/addstation">Add Station</a>
                             </li>
                             <li>
                                 <a href="../station/viewallstation">View Stations</a>
@@ -165,23 +165,40 @@
                          
                         </ul>
                     </li>
-
-
-                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#Transportation"><i class="fa fa-fw fa-arrows-v"></i> Transportation <i class="fa fa-fw fa-caret-down"></i></a>
+<li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Transportation"><i class="fa fa-fw fa-arrows-v"></i> Transportations <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="Transportation" class="collapse">
 
-                           <li>
-                                <a href="addtransortation">Add Transportation</a>
+                            <li>
+                                <a href="../transportationmean/addtransortation">Add Transportation</a>
                             </li>
                             <li>
-                                <a href="#">View Transportations</a>
+                                <a href="../transportationmean/viewtransortation">View Transportations</a>
                             </li>
 
 
                          
                         </ul>
                     </li>
+                    
+                    
+                       <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#StationTrans"><i class="fa fa-fw fa-arrows-v"></i> Transportations in Stations <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="StationTrans" class="collapse">
+
+                            <li>
+                                <a href="../pass/addpass">Add A Transportation in A Station</a>
+                            </li>
+                            <li>
+                                <a href="../pass/listpass">View Transportations in Stations</a>
+                            </li>
+
+                         
+                        </ul>
+                    </li>
+                    
+                    
+                    
 
 
                     
@@ -199,7 +216,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Transportation Means
+                            Transportations
                         </h1>
                         <ol class="breadcrumb">
                             <li>
@@ -207,7 +224,7 @@
                             </li>
 
                              <li class="active">
-                                <i class="fa fa-edit"></i> Transportation
+                                <i class="fa fa-edit"></i> View Transportations
                             </li>
 
                         </ol>
@@ -224,7 +241,8 @@
                                         <th>Transportation Id</th>
                                         <th>Transportation Type</th>
                                         <th>Transportation Name/Number</th>
-                                        <th colspan="2">Transportation Process</th>
+                                         <th>Number Of The Stations To Be Passed</th>
+                                        <th colspan="2">Delete/Edit Transportations</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -242,7 +260,9 @@
                                    echo'</td>';
                                    echo'</td><td>';
                                    echo $this->alldataoftransportation[$i]['tr_number/name'];
-                                   echo'</td>';
+                                    echo'</td><td>';
+                                   echo $this->alldataoftransportation[$i]['tr_stations_number'];
+                                  
                                     echo'</td><td>';
                                     echo '<a href="'.$this->baseUrl().'/transportationmean/deletetransortation/tr_id/'.$this->alldataoftransportation[$i]['tr_id'].'"><img src="/transportation/public/images/delete.png" alt="Edit" height="25" width="25"></a>';
                                     echo'</td>';

@@ -7,7 +7,7 @@ class Application_Model_Station extends Zend_Db_Table_Abstract
 
  function addstation($station_date){
      
-     echo $station_date;
+     //echo $station_date;
      return $this->insert($station_date);
      
   }
@@ -27,7 +27,14 @@ class Application_Model_Station extends Zend_Db_Table_Abstract
              
              
   }
-         
+  
+  function  listallstations()
+  
+  {
+          return $this->fetchAll()->toArray();
+
+  }
+          
 function deletetestation($stationid){
              
           

@@ -37,8 +37,7 @@ class TransportationmeanController extends Zend_Controller_Action
  
            }
  else {
-               echo 'hi';
-     
+              
  }
            
     }

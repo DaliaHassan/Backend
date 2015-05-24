@@ -1,5 +1,6 @@
 
 
+
 <!--<form   method="post">
     <label>transportation type</label>
     <input type="text"  required name="tr_type">
@@ -23,7 +24,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Edit Station</title>
+    <title>View Pass</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/transportation/public/css/bootstrap.min.css" rel="stylesheet">
@@ -54,10 +55,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../../user/home">Control Panel</a>
+                <a class="navbar-brand" href="../user/home">Control Panel</a>
             </div>
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
+             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
                     
                     <ul class="dropdown-menu message-dropdown">
@@ -120,13 +121,15 @@
        
                             $name = $z->getIdentity()->u_name;
 
-?>
+                    ?>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?= $name ?><b class="caret"></b></a>
                     <ul class="dropdown-menu"> 
+                     
                         
                         <li>
-                            <a href="../../../user/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="../user/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
+                        
                     </ul>
                 </li>
             </ul>
@@ -134,7 +137,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="../../../user/home"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="../user/home"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
 
                  
@@ -143,7 +146,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#users"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="users" class="collapse">
                             <li>
-                                <a href="<?php $this->baseUrl()?>../../../user/listuser">View Users</a>
+                                <a href="<?php $this->baseUrl()?>../user/listuser">View Users</a>
                             </li>
 
                            
@@ -156,10 +159,10 @@
                         <ul id="Stations" class="collapse">
 
                             <li>
-                                <a href="../../../station/addstation">Add Station</a>
+                                <a href="../station/addstation">Add Station</a>
                             </li>
                             <li>
-                                <a href="../../../station/viewallstation">View Stations</a>
+                                <a href="#">View Stations</a>
                             </li>
 
                          
@@ -172,33 +175,31 @@
                         <ul id="Transportation" class="collapse">
 
                            <li>
-                                <a href="../../../transportationmean/addtransortation">Add Transportation</a>
+                               <a href="../transportationmean/addtransortation">Add Transportation</a>
                             </li>
                             <li>
-                                <a href="../../../transportationmean/viewtransortation">View Transportations</a>
+                                <a href="../transportationmean/viewtransortation">View Transportations</a>
                             </li>
 
 
                          
                         </ul>
                     </li>
-                    
                     
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#StationTrans"><i class="fa fa-fw fa-arrows-v"></i> Transportations in Stations <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="StationTrans" class="collapse">
 
                             <li>
-                                <a href="../../../pass/addpass">Add A Transportation in A Station</a>
+                                <a href="../pass/addpass">Add A Transportation in A Station</a>
                             </li>
                             <li>
-                                <a href="../../../pass/listpass">View Transportations in Stations</a>
+                                <a href="../pass/listpass">View Transportations in Stations</a>
                             </li>
 
                          
                         </ul>
                     </li>
-                    
 
 
                     
@@ -216,15 +217,15 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Stations
+                           Transportations in Stations
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="../../../user/home">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="../user/home">Dashboard</a>
                             </li>
 
                              <li class="active">
-                                <i class="fa fa-edit"></i> Edit Station
+                                <i class="fa fa-edit"></i> View Transportations in Stations
                             </li>
 
                         </ol>
@@ -234,55 +235,59 @@
 
                 <div class="row">
                     <div class="col-lg-6">
-             
-                      <?php
-  
+                         <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Station Name</th>
+                                        <th>Transportation Name</th>
+                                        <th>The Number Of Stations To Be Passed </th>
+                                        <th>The Transportation According To The Station </th>
+                                        
+                                        
+                                        <th colspan="2">Delete/Edit</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                 <?php
 
-if (isset($this->mystationdata)) 
+if (isset($this->alldataofpass)) {
+    
    
-  {
-     
-  echo'<form   method="post"><label>Station Name:</label>
-       <div class="form-group">
-    <input type="text" class="form-control" name="st_name" value="'.$this->mystationdata[0]['st_name'].'"></br>
-    
-    <label>Station Longitude:</label> 
-    <input type="text" class="form-control" name="st_long" value="'.$this->mystationdata[0]['st_long'].'"></br>
-    
-     <label>Station Latidude:</label> 
-    <input type="text"  class="form-control" name="st_latt" value="'.$this->mystationdata[0]['st_latt'].'"></br>
-    </div>
-      <label> Select Area:</label> 
-                            <select name="st_area"  class="form-control">
-                                ';
-  
-  
-                                $myareaname=$this->mystationdata[0]['area_name'];
-                                $myareaid=$this->mystationdata[0]['st_area'];
-  
-                                echo "<option value=$myareaid=>$myareaname</opton> ";
-                              
-                                if(isset($this->allarea)){
-                                   
-                                for ($i = 0; $i < count($this->allarea); $i++)
-                                {
-                                    $areaname= $this->allarea[$i]['area_name'];
-                                    $areaid=$this->allarea[$i]['area_id'];
-                                echo "<option value=$areaid>$areaname</opton> ";
-                                }}
-                          echo '
-                            </select>
-                            </br>
-    <button type="submit" class="btn btn-default">Edit Station</button>
-  
-      </form>';
-    
-}
- else {
-    echo 'notsucssful';    
-}
+ 
+    for($i=0;$i<count($this->alldataofpass);$i++){
+       // foreach ($this->alldata[$i] as $key => $value) {
+           
+            echo '<tr><td>';
+            echo $this->alldataofpass[$i]['st_name'];
+            echo'</td><td>';
+            echo $this->alldataofpass[$i]['tr_number/name'];
+            echo'</td><td>';
+            echo $this->alldataofpass[$i]['pass_transportation_number'];
+            echo'</td><td>';
+            echo $this->alldataofpass[$i]['pass_status'];
+            echo'</td><td>';
+            echo '<a href="'.$this->baseUrl().'/pass/deletepass/station_id/'.$this->alldataofpass[$i]['st_id'].'/transportation_id/'.$this->alldataofpass[$i]['tr_id'].'"><img src="/transportation/public/images/delete.png" alt="Edit" height="25" width="25"></a>';
+            echo'</td><td>';
+            echo '<a href="'.$this->baseUrl().'/pass/updatapass/station_id/'.$this->alldataofpass[$i]['st_id'].'/transportation_id/'.$this->alldataofpass[$i]['tr_id'].'"><img src="/transportation/public/images/edit.png" alt="Edit" height="25" width="25"></a>';
+            echo'</td>';
+            echo'</tr>';
+            
+        }
+ 
+        
+        
+        
+    }
 
 ?>
+                                  
+                                </tbody>
+                            </table>
+                        </div>    
+                       
+
                     </div>
                    
                 </div>
@@ -308,6 +313,3 @@ if (isset($this->mystationdata))
 </body>
 
 </html>
-
-
-
